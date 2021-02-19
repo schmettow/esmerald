@@ -1,1 +1,3 @@
-# esmerald
+# Esmerald
+
+Experience Sampling made easy
