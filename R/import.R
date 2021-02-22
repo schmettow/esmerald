@@ -11,13 +11,14 @@
 read_ethica_csv <- function(file)
 {
   out <-
-    read_csv(file) %>%
+    read_csv(file, col_types = cols()) %>%
     rename(Part = Name,
            Device = `Device ID`,
            T_Scheduled = `Scheduled Time`,
            T_Issued = `Issued Time`,
            T_Response = `Response Time`,
            duration = `Duration (minutes)`) %>%
+    mutate(Action = file) %>%
     mutate_at(vars(starts_with("T_")), lubridate::as_datetime) %>%
     mutate(duration = T_Response - T_Issued) %>%
     pivot_longer(starts_with("["), names_to = "Item", values_to = "Response") %>%

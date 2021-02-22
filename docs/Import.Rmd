@@ -12,68 +12,51 @@ library(bayr)
 library(esmerald)
 ```
 
+# Import
 
-## Summarize
+Character vector of csv files
 
+```{r}
+csv <- dir("../inst/extdata/",full.names = T)[1:8]
+```
 
+Reading a single file
 
-## Import
+```{r}
+ESM_1 <- read_ethica_csv(csv[2])
+```
+
+The result is a table of class *tbl_esm*.
+
+```{r}
+class(ESM_1)
+```
+
+But the fact that we use S3 classes shouldn't bother you. It just makes it easier for us to create a convenient interface. For example, if you just call the ESM_1 object like this:
+
+```{r eval = F}
+ESM_1
+```
+
+you get a summary of the data set:
+
+```{r echo = F}
+ESM_1
+```
+
+ESM_1 is in long format. Every measure gets its own row. The long format also makes it very easy to combine a group of files into one ESM table. If you know a little programming already, you might think that processing a list of objects requires a loop. In R, this is much easier. `map_df` takes a list of file names as input, applies the function `read_ethica_csv` a number of times and merges the results into  one ESM table.
 
 
 ```{r}
-read_ethica_csv <- function(file)
-{
-  out <-
-  read_csv(file) %>% 
-    rename(Part = Name, 
-           Device = `Device ID`,
-           T_Scheduled = `Scheduled Time`,
-           T_Issued = `Issued Time`,
-           T_Response = `Response Time`,
-           duration = `Duration (minutes)`) %>% 
-    mutate_at(vars(starts_with("T_")), lubridate::as_datetime) %>% 
-    mutate(duration = T_Response - T_Issued) %>% 
-    pivot_longer(starts_with("["), names_to = "Item", values_to = "Response") %>% 
-    mutate(response = as.numeric(str_match(Response, "[0-9]+"))) %>% 
-    bayr::as_tbl_obs()
-  class(out) <- c("tbl_esm", class(out))
-  out
-}
+ESM_2 <- csv[2:6] %>% map_df(read_ethica_csv)
+ESM_2
+```
+The `plot` command provides an overview of the data.
 
-csv <- dir("inst/extdata/",full.names = T)[1:8]
-read_ethica_csv(csv[2])
-
-csv[2:6] %>% map(read_ethica_csv)
-
+```{r fig.height = 12}
+plot(ESM_2)
 ```
 
-
-
-```{r}
-
-print.tbl_esm <-
-  function(x){
-    n_Obs <- nrow(x)
-    n_shown <- min(8, nrow(x))
-    n_Part <- nrow(distinct(x,Part)) 
-    n_Item <- nrow(distinct(x,Item))
-    n_Scheduled <- nrow(distinct(x,T_Scheduled))
-    cap = stringr::str_c("Table: ESM data with ", n_Obs, " observations (",
-                         n_shown," shown), ",
-                         n_Part, " participants and ", 
-                         n_Item, " items")
-    print(cap)
-	  sample_n(x, 8) %>% base:::print.data.frame()
-    invisible(x)
-  }
-```
-
-
-```{r}
-
-Data <- 
-  
-```
 
 
 
