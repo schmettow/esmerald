@@ -1,5 +1,5 @@
 ---
-title: "Import"
+title: "Esmerald. Experience sampling made easy."
 author: "M Schmettow"
 date: "19/02/2021"
 output: html_document
@@ -38,7 +38,7 @@ But the fact that we use S3 classes shouldn't bother you. It just makes it easie
 ESM_1
 ```
 
-you get a summary of the data set:
+you get a useful summary of the data set:
 
 ```{r echo = F}
 ESM_1
@@ -51,12 +51,23 @@ ESM_1 is in long format. Every measure gets its own row. The long format also ma
 ESM_2 <- csv[2:6] %>% map_df(read_ethica_csv)
 ESM_2
 ```
+
+
 The `plot` command provides an overview of the data.
 
 ```{r fig.height = 12}
 plot(ESM_2)
 ```
 
+# Data manipulation
+
+
+
+# Reporting
+
+
+
+# Modelling
 
 
 
