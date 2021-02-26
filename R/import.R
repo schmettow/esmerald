@@ -55,14 +55,15 @@ print.tbl_esm <-
 #' @export
 
 export_item_labels <- function(tbl_esm){
-    tbl_esm %>%
+  tbl_esm %>%
     select(Item_raw) %>%
+    as_tibble() %>%
     distinct() %>%
     mutate(Scale = "",
            Item = "",
            Label = "",
            min = "",
            max = "",
-           reverse = T)
+           reverse = F)
   }
 

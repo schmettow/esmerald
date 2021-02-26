@@ -61,7 +61,21 @@ The `plot` command provides an overview of the data.
 plot(ESM_2)
 ```
 
-# Data manipulation
+# Adding meta data
+
+We export a table to add the meta data:
+
+```{r}
+ESM_2 %>% 
+  export_item_labels() %>% 
+  write_csv(file = "ESM_2_Scales.csv")
+```
+
+After editing, we join it back:
+
+```{r}
+
+```
 
 
 
