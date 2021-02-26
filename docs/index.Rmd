@@ -65,17 +65,29 @@ ESM_2 %>%
   write_csv(file = "ESM_2_Scales.csv")
 ```
 
-After editing, we *augment* the Ethica table with meta data::
+After editing, we *augment* the Ethica table with meta data. The result sis a `tbl_esm` object.
 
 ```{r}
 Meta_items <- read_csv("../inst/extdata/ESM_2_Scales.csv")
 
 ESM_2_1 <- 
   ESM_2 %>% 
-  augment(Meta_items)
+  augment.tbl_esm_eth(Meta_items)
 
 ```
 
+# Data manipulation
+
+```{r}
+ESM_2_1 %>% 
+  ggplot(aes(x = T_pos, y = response)) +
+  geom_count() +
+  geom_smooth() +
+  facet_wrap(~Part)
+
+
+  
+```
 
 
 

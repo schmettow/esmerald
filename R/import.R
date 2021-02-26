@@ -51,7 +51,11 @@ augment <-
 augment.tbl_esm_eth <- function(x, meta, ...){
   out <-
     x %>%
-    left_join(meta, by = c("Item_raw", "Activity"))
+    left_join(meta, by = c("Item_raw", "Activity")) %>%
+    group_by(Part, Item_raw) %>%
+    arrange(T_Scheduled) %>%
+    mutate(T_pos = row_number()) %>%
+    ungroup()
   class(out) <- c("tbl_esm", class(x))
   out
 }
