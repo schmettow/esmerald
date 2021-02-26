@@ -65,7 +65,8 @@ export_item_labels <- function(tbl_esm){
     select(Activity, Item_raw) %>%
     as_tibble() %>%
     distinct() %>%
-    mutate(Scale = "",
+    mutate(Inventory = "",
+           Scale = "",
            Item = "",
            Label = "",
            min = "",
