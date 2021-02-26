@@ -72,7 +72,7 @@ Meta_items <- read_csv("../inst/extdata/ESM_2_Scales.csv")
 
 ESM_2_1 <- 
   ESM_2 %>% 
-  augment(Meta_items)
+  augment.tbl_esm_eth(Meta_items)
 
 ```
 
