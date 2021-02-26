@@ -16,7 +16,7 @@ library(esmerald)
 Character vector of csv files
 
 ```{r}
-csv <- dir("../inst/extdata/",full.names = T)[1:8]
+csv <- dir("../inst/extdata/",full.names = T)[2:9]
 ```
 
 Reading a single file
@@ -49,7 +49,7 @@ ESM_1 is in long format. Every measure gets its own row. The long format also ma
 
 ```{r}
 ESM_2 <- 
-  csv[2:6] %>% 
+  csv[3:7] %>% 
   map_df(read_ethica_csv)
 ESM_2
 ```
