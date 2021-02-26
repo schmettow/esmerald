@@ -17,13 +17,13 @@ read_ethica_csv <- function(file)
            T_Scheduled = `Scheduled Time`,
            T_Issued = `Issued Time`,
            T_Response = `Response Time`) %>%
-    mutate(Action = file) %>%
+    mutate(Activity = stringr::str_extract(file, "[0-9]+")) %>%
     mutate_at(vars(starts_with("T_")), lubridate::as_datetime) %>%
     mutate(duration = T_Response - T_Issued) %>%
     pivot_longer(starts_with("["), names_to = "Item_raw", values_to = "Response") %>%
     mutate(response = as.numeric(str_match(Response, "[0-9]+")),
            Obs = row_number()) %>%
-    select(Obs, Action, Part, Device,
+    select(Obs, Activity, Part, Device,
            T_Scheduled, T_Issued, T_Response,
            Item_raw, Response, response)
   class(out) <- c("tbl_esm", class(out))
@@ -62,7 +62,7 @@ print.tbl_esm <-
 
 export_item_labels <- function(tbl_esm){
   tbl_esm %>%
-    select(Item_raw) %>%
+    select(Activity, Item_raw) %>%
     as_tibble() %>%
     distinct() %>%
     mutate(Scale = "",
