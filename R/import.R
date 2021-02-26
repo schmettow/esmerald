@@ -51,7 +51,11 @@ augment <-
 augment.tbl_esm_eth <- function(x, meta, ...){
   out <-
     x %>%
-    left_join(meta, by = c("Item_raw", "Activity"))
+    left_join(meta, by = c("Item_raw", "Activity")) %>%
+    group_by(Part, Item_raw) %>%
+    arrange(T_Scheduled) %>%
+    mutate(T_pos = row_number()) %>%
+    ungroup()
   class(out) <- c("tbl_esm", class(x))
   out
 }
@@ -84,7 +88,7 @@ print.tbl_esm <-
 #' Export empty meta data for scales and items
 #'
 #' Creates an empty table with filled in raw item labels.
-#' @param tbl_esm_raw ESm table produced by read_x_csv
+#' @param tbl_esm_eth ESm table produced by read_ethica_csv
 #' @return data frame
 #' @author Martin Schmettow
 #' @import tidyverse
