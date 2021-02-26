@@ -11,7 +11,7 @@ library(lubridate)
 library(esmerald)
 ```
 
-# Import
+# Import and prepare
 
 Character vector of csv files
 
@@ -55,34 +55,27 @@ ESM_2
 ```
 
 
-The `plot` command provides an overview of the data.
-
-```{r fig.height = 12}
-plot(ESM_2)
-```
-
 # Adding meta data
 
 We export a table to add the meta data:
 
-```{r}
+```{r eval = F}
 ESM_2 %>% 
-  export_item_labels() %>% 
+  export_items_template() %>% 
   write_csv(file = "ESM_2_Scales.csv")
 ```
 
-After editing, we join it back:
+After editing, we *augment* the Ethica table with meta data::
 
 ```{r}
+Meta_items <- read_csv("../inst/extdata/ESM_2_Scales.csv")
+
 ESM_2_1 <- 
-read_csv("../inst/extdata/ESM_2_Scales.csv") %>% 
-  select(-Activity) %>% 
-  right_join(ESM_2, by = "Item_raw") %>% 
-  mutate(response = mascutils::rescale_unit(response),
-         response = if_else(reverse == T,
-                            1 - response,
-                            response))
+  ESM_2 %>% 
+  augment(Meta_items)
+
 ```
+
 
 
 
@@ -100,7 +93,13 @@ ESM_2_1 %>%
   GGally::ggpairs()
 ```
 
-We do a mean response per Part, Scale and T_Scheduled and plot a time series
+We do a mean response per Part, Scale and T_Scheduled and plot a time series. You need package mascutils from Github (restart your R session, before you install):
+
+```{r eval = F}
+devtools::install_github("schmettow/esmerald")
+```
+
+
 
 ```{r fig.height = 12}
 ESM_2_1 %>% 
@@ -111,8 +110,9 @@ ESM_2_1 %>%
   ggplot(aes(x = T_Scheduled,
              y = mean_resp,
              col = Scale)) +
+  geom_jitter(alpha = .3) +
   geom_smooth(se = F) +
-  facet_wrap(Part ~ .)
+  facet_wrap(Part ~ ., scales = "free_x")
 ```
 
 
