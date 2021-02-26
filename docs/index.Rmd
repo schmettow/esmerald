@@ -16,7 +16,7 @@ library(esmerald)
 Character vector of csv files
 
 ```{r}
-csv <- dir("../inst/extdata/",full.names = T)[1:8]
+csv <- dir("../inst/extdata/",full.names = T)[2:9]
 ```
 
 Reading a single file
