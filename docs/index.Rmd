@@ -81,7 +81,7 @@ read_csv("../inst/extdata/ESM_2_Scales.csv") %>%
   mutate(response = mascutils::rescale_unit(response),
          response = if_else(reverse == T,
                             1 - response,
-                            response)
+                            response))
 ```
 
 
