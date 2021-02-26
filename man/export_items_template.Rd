@@ -7,7 +7,7 @@
 export_items_template(tbl_esm_raw)
 }
 \arguments{
-\item{tbl_esm_raw}{ESm table produced by read_x_csv}
+\item{tbl_esm_eth}{ESm table produced by read_ethica_csv}
 }
 \value{
 data frame
