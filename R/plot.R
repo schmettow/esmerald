@@ -12,7 +12,7 @@ plot.tbl_esm <- function(x)
   group_by(Part) %>%
   arrange(T_Response) %>%
   mutate(order_resp = row_number()) %>%
-  ggplot(aes(x = order_resp, y = response, col = Action)) +
+  ggplot(aes(x = order_resp, y = response, col = Activity)) +
   geom_jitter(alpha = .2) +
   geom_smooth(se = F, method = "lm") +
   facet_wrap(~Part)
