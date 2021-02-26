@@ -8,7 +8,6 @@ output: html_document
 ```{r setup}
 library(tidyverse)
 library(lubridate)
-library(bayr)
 library(esmerald)
 ```
 
@@ -23,7 +22,8 @@ csv <- dir("../inst/extdata/",full.names = T)[1:8]
 Reading a single file
 
 ```{r}
-ESM_1 <- read_ethica_csv(csv[2])
+ESM_1 <- 
+  read_ethica_csv("../inst/extdata/survey_responses_5716.csv")
 ```
 
 The result is a table of class *tbl_esm*.
@@ -48,7 +48,9 @@ ESM_1 is in long format. Every measure gets its own row. The long format also ma
 
 
 ```{r}
-ESM_2 <- csv[2:6] %>% map_df(read_ethica_csv)
+ESM_2 <- 
+  csv[2:6] %>% 
+  map_df(read_ethica_csv)
 ESM_2
 ```
 

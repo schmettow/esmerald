@@ -3,11 +3,14 @@
 \name{read_ethica_csv}
 \alias{read_ethica_csv}
 \alias{print.tbl_esm}
+\alias{export_item_labels}
 \title{Import Ethica CSV file}
 \usage{
 read_ethica_csv(file)
 
 \method{print}{tbl_esm}(x)
+
+export_item_labels(tbl_esm)
 }
 \arguments{
 \item{file}{csv file name}

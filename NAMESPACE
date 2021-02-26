@@ -2,5 +2,6 @@
 
 S3method(plot,tbl_esm)
 S3method(print,tbl_esm)
+export(export_item_labels)
 export(read_ethica_csv)
 import(tidyverse)
