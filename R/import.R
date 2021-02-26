@@ -70,9 +70,10 @@ export_item_labels <- function(tbl_esm){
     ungroup() %>%
     mutate(Inventory = "",
            Scale = "",
+           Subscale = "",
            Item = "",
            Label = "",
            reverse = "") %>%
-    select(Activity, Inventory, Scale, Item, Label, reverse, min, max)
+    select(Activity, Inventory, Scale, Subscale, Item, Label, reverse, min, max)
   }
 

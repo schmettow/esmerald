@@ -74,15 +74,46 @@ ESM_2 %>%
 After editing, we join it back:
 
 ```{r}
-read_csv("ESM_2_Scales.csv") %>% 
+ESM_2_1 <- 
+read_csv("../inst/extdata/ESM_2_Scales.csv") %>% 
   select(-Activity) %>% 
-  right_join(ESM_2, by = "Item_raw")
+  right_join(ESM_2, by = "Item_raw") %>% 
+  mutate(response = mascutils::rescale_unit(response),
+         response = if_else(reverse == T,
+                            1 - response,
+                            response)
 ```
 
 
 
 # Reporting
 
+We compute the mean response per participant and do correlations
+
+```{r}
+ESM_2_1 %>% 
+  group_by(Part, Scale) %>% 
+  summarize(mean_resp = mean(response, na.rm = T)) %>% 
+  ungroup() %>% 
+  pivot_wider(names_from = Scale, values_from = mean_resp) %>% 
+  select(-Part) %>% 
+  GGally::ggpairs()
+```
+
+We do a mean response per Part, Scale and T_Scheduled and plot a time series
+
+```{r fig.height = 12}
+ESM_2_1 %>% 
+  filter(str_detect(Scale, "^state")) %>% 
+  group_by(Part, Scale, T_Scheduled) %>% 
+  summarize(mean_resp = mean(response, na.rm = T)) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = T_Scheduled,
+             y = mean_resp,
+             col = Scale)) +
+  geom_smooth(se = F) +
+  facet_wrap(Part ~ .)
+```
 
 
 # Modelling
