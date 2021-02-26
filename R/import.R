@@ -51,7 +51,13 @@ print.tbl_esm <-
     invisible(x)
   }
 
-#' @rdname read_ethica_csv
+#' Export empty meta data for scales and items
+#'
+#' Creates an empty table with filled in raw item labels.
+#' @param tbl_esm ESm table produced by read_x_csv
+#' @return data frame
+#' @author Martin Schmettow
+#' @import tidyverse
 #' @export
 
 export_item_labels <- function(tbl_esm){
