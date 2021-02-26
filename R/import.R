@@ -62,15 +62,17 @@ print.tbl_esm <-
 
 export_item_labels <- function(tbl_esm){
   tbl_esm %>%
-    select(Activity, Item_raw) %>%
+    select(Activity, Item_raw, response) %>%
     as_tibble() %>%
-    distinct() %>%
+    group_by(Activity, Item_raw) %>%
+    summarize(min = min(response, na.rm = T),
+              max = max(response, na.rm = T)) %>%
+    ungroup() %>%
     mutate(Inventory = "",
            Scale = "",
            Item = "",
            Label = "",
-           min = "",
-           max = "",
-           reverse = F)
+           reverse = "") %>%
+    select(Activity, Inventory, Scale, Item, Label, reverse, min, max)
   }
 

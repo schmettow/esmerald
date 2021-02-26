@@ -74,7 +74,9 @@ ESM_2 %>%
 After editing, we join it back:
 
 ```{r}
-
+read_csv("ESM_2_Scales.csv") %>% 
+  select(-Activity) %>% 
+  right_join(ESM_2, by = "Item_raw")
 ```
 
 
