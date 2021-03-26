@@ -5,18 +5,22 @@
 \alias{augment.tbl_esm_eth}
 \title{Augment imported file with meta data}
 \usage{
-augment(x, meta, ...)
+augment(x, ...)
 
-\method{augment}{tbl_esm_eth}(x, meta, ...)
+\method{augment}{tbl_esm_eth}(x, Parts = NULL, Items = NULL, ...)
 }
 \arguments{
-\item{file}{csv file name}
+\item{x}{csv file name}
+
+\item{Parts}{data frame with traits}
+
+\item{Items}{data frame item meta data}
 }
 \value{
 ESM table (tbl_esm)
 }
 \description{
-returns a long ESM table
+adds participant and item level meta data
 }
 \author{
 Martin Schmettow

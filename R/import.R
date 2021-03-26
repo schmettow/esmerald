@@ -31,36 +31,75 @@ read_ethica_csv <- function(file)
 }
 
 
+
+
+
 #' Augment imported file with meta data
 #'
-#' returns a long ESM table
-#' @param file csv file name
+#' adds participant and item level meta data
+#' @param x csv file name
+#' @param Items data frame item meta data
+#' @param Parts data frame with traits
 #' @return ESM table (tbl_esm)
 #' @author Martin Schmettow
 #' @import tidyverse
 #' @export
 
 augment <-
-  function (x, meta, ...) {
+  function (x, ...) {
     UseMethod("augment", x)
   }
 
 #' @rdname augment
 #' @export
 
-augment.tbl_esm_eth <- function(x, meta, ...){
-  out <-
-    x %>%
-    left_join(meta, by = c("Item_raw", "Activity")) %>%
+augment.tbl_esm_eth <- function(x, Parts = NULL, Items = NULL, ...){
+  out <- x %>%
     group_by(Part, Item_raw) %>%
     arrange(T_Scheduled) %>%
     mutate(T_pos = row_number()) %>%
     ungroup()
+
+  if(!is_null(Items))  {
+    print("Joining Items")
+    out <-
+      out %>%
+      left_join(Items, by = "Item_raw") %>%
+      select(-Item_raw)}
+
+  if(!is_null(Parts)) {
+    out <-
+      out %>%
+      left_join(Parts, by = "Part")}
+
   class(out) <- c("tbl_esm", class(x))
   out
 }
 
 
+#' Normalizes item responses
+#'
+#' when augmentation meta data is available,
+#' rating scale responses are reversed and scaled to a unit interval
+#'
+#' @param x csv file name
+#' @param Items data frame item meta data
+#' @param Parts data frame with traits
+#' @return ESM table (tbl_esm)
+#' @author Martin Schmettow
+#' @import tidyverse
+#' @export
+
+
+normalize_Scales <- function(x) {
+  out <-
+    x %>%
+    mutate(response = mascutils::rescale_unit(lower = min, upper = max),
+           response = if_else(reverse, 1 - response,
+                              response)) %>%
+    select(-min, -max, -reverse)
+
+}
 
 
 
@@ -72,7 +111,7 @@ print.tbl_esm <-
     n_Obs <- nrow(x)
     n_shown <- min(8, nrow(x))
     n_Part <- nrow(distinct(x,Part))
-    n_Item <- nrow(distinct(x,Item_raw))
+    n_Item <- nrow(distinct(x,Item))
     n_Scheduled <- nrow(distinct(x,T_Scheduled))
     n_Scales <- nrow(distinct(x,Scale))
     cap = stringr::str_c("Table: ESM data with ",
@@ -109,7 +148,7 @@ export_items_template <-
              Item = "",
              Label = "",
              reverse = "") %>%
-      select(Activity, Item_raw, Inventory, Scale, Subscale, Item, Label, reverse, min, max)
+      select(Item_raw, Inventory, Scale, Subscale, Item, Label, reverse, min, max)
   }
 
 
