@@ -1,48 +1,48 @@
-Activity,Item_raw,Scale,Subscale,Item,Label,min,max,reverse
-5716,[2_SAQ] I am so caught up in my thoughts that I don't know what to do,CFQ,,1,,,,FALSE
-5716,[3_SAQ] My thoughts are causing me distress or emotional pain,CFQ,,2,,,,FALSE
-5716,[4_SAQ] I am over-analysing the situation to the point where it's unhelpful to me,CFQ,,3,,,,FALSE
-5716,[5_SAQ] I am struggling with my thoughts,CFQ,,4,,,,FALSE
-5716,[6_SAQ] I am upset with myself for having certain thoughts,CFQ,,5,,,,FALSE
-5716,[7_SAQ] I am very entangled in my thoughts,CFQ,,6,,,,FALSE
-5716,[8_SAQ] It's such a struggle to let go of upsetting thoughts even though I know that letting go would be helpful,CFQ,,7,,,,FALSE
-5717,[5_SAQ] Currently I don't feel entangled in my thoughts.,state_CF,,1,,1,5,TRUE
-5717,[7_SAQ] At the moment I feel determined to stick to my current task until it's complete.,state_GR,,2,,1,5,FALSE
-5717,[8_SAQ] Any feelings of inadequacy I experience right now are shared by most people.,state_SC,CH,3,,1,5,FALSE
-5717,[13_SAQ] Right now I don't feel confident in my ability to effectively accomplish my current task.,state_SE,,4,,1,5,TRUE
-5717,[9_SAQ] Right now I am giving myself the caring and tenderness I need towards my negative feelings.,state_SC,SK,5,,1,5,FALSE
-5717,[10_SAQ] Right now I believe I can succeed in my current task if I set my mind to it.,state_SE,,6,,1,5,FALSE
-5717,[11_SAQ] I am currently struggling with my thoughts.,state_CF,,7,,1,5,FALSE
-5717,[14_SAQ] At the moment I don't feel committed to my current task as much as I think I should.,state_GR,,8,,1,5,TRUE
-5718,[8_SAQ] When I fail at something important to me I become consumed by feelings of inadequacy.,SCS-SF,SK,1,,1,5,TRUE
-5718,[29_SAQ]  I try to be understanding and patient towards those aspects of my personality I don't like.,SCS-SF,SK,2,,1,5,FALSE
-5718,[6_SAQ]  When something painful happens I try to take a balanced view of the situation. ,SCS-SF,MF,3,,1,5,FALSE
-5718,[3_SAQ]  When I’m feeling down I tend to feel like most other people are probably happier than I am.,SCS-SF,CH,4,,1,5,TRUE
-5718,[10_SAQ]  I try to see my failings as part of the human condition.,SCS-SF,CH,5,,1,5,FALSE
-5718,[11_SAQ] When I’m going through a very hard time I give myself the caring and tenderness I need. ,SCS-SF,SK,6,,1,5,FALSE
-5718,[12_SAQ] When something upsets me I try to keep my emotions in balance. ,SCS-SF,MF,7,,1,5,FALSE
-5718,[13_SAQ] When I fail at something that’s important to me I tend to feel alone in my failure.,SCS-SF,CH,8,,1,5,TRUE
-5718,[14_SAQ] When I’m feeling down I tend to obsess and fixate on everything that’s wrong. ,SCS-SF,SK,9,,1,5,TRUE
-5718,[15_SAQ] When I feel inadequate in some way I try to remind myself that feelings of inadequacy are shared by most people. ,SCS-SF,CH,10,,1,5,FALSE
-5718,[16_SAQ]  I’m disapproving and judgmental about my own flaws and inadequacies. ,SCS-SF,SK,11,,1,5,TRUE
-5718,[17_SAQ] I’m intolerant and impatient towards those aspects of my personality I don’t like.,SCS-SF,SK,12,,1,5,TRUE
-5752,[4_SAQ] 1. I don't always work as hard as I can.,GSCA,,1,,1,5,TRUE
-5752,[5_SAQ] 2. I always finish what I start﻿.,GSCA,,2,,1,5,FALSE
-5752,[6_SAQ] 3. I am not always motivated to do my best,GSCA,,3,,1,5,TRUE
-5752,[7_SAQ] 4. I always stick to the task I am working on until it is complete.,GSCA,,4,,1,5,FALSE
-5752,[8_SAQ] 5. I always keep working for what I want even when I don't do as well as I would like to.,GSCA,,5,,1,5,FALSE
-5752,[9_SAQ] 6. Sometimes I am not as focused on my work as I would like to be,GSCA,,6,,1,5,TRUE
-5752,[10_SAQ] 7. Challenges in my life sometimes make me want to stop trying.,GSCA,,7,,1,5,TRUE
-5752,[11_SAQ] 8. No matter what happens to me I will be okay.,GSCA,,8,,1,5,FALSE
-5752,[12_SAQ] 9. I always pay attention to what I am working on to make sure I do it well.,GSCA,,9,,1,5,FALSE
-5752,[13_SAQ] 10. Sometimes I don't care about my work as much as I should.,GSCA,,10,,1,5,TRUE
-5752,[14_SAQ] 11. I never give up even when things get tough.,GSCA,,11,,1,5,FALSE
-5752,[15_SAQ] 12. I am able to get through tough times without any difficulty.,GSCA,,12,,1,5,FALSE
-5755,[4_SAQ] 1. I will be able to achieve most of the goals that I have set for myself. ,NGSE,,1,,1,5,FALSE
-5755,[5_SAQ] 2. When facing difficult tasks I am certain that I will accomplish them. ,NGSE,,2,,1,5,FALSE
-5755,[6_SAQ] 3. In general I think that I can obtain outcomes that are important to me. ,NGSE,,3,,1,5,FALSE
-5755,[7_SAQ] 4. I believe I can succeed at most any endeavor to which I set my mind. ,NGSE,,4,,1,5,FALSE
-5755,[8_SAQ] 5. I will be able to successfully overcome many challenges. ,NGSE,,5,,1,5,FALSE
-5755,[9_SAQ] 6. I am confident that I can perform effectively on many different tasks. ,NGSE,,6,,1,5,FALSE
-5755,[10_SAQ] 7. Compared to other people I can do most tasks very well. ,NGSE,,7,,1,5,FALSE
-5755,[11_SAQ] 8. Even when things are tough I can perform quite well. ,NGSE,,8,,1,5,FALSE
+Activity,Item_raw,Inventory,Scale,Subscale,Item,Label,reverse,min,max,Trait
+5716,[2_SAQ] I am so caught up in my thoughts that I don't know what to do,,CF,,1,,FALSE,1,7,TRUE
+5716,[3_SAQ] My thoughts are causing me distress or emotional pain,,CF,,2,,FALSE,1,7,TRUE
+5716,[4_SAQ] I am over-analysing the situation to the point where it's unhelpful to me,,CF,,3,,FALSE,1,7,TRUE
+5716,[5_SAQ] I am struggling with my thoughts,,CF,,4,,FALSE,1,7,TRUE
+5716,[6_SAQ] I am upset with myself for having certain thoughts,,CF,,5,,FALSE,1,7,TRUE
+5716,[7_SAQ] I am very entangled in my thoughts,,CF,,6,,FALSE,1,7,TRUE
+5716,[8_SAQ] It's such a struggle to let go of upsetting thoughts even though I know that letting go would be helpful,,CF,,7,,FALSE,1,7,TRUE
+5717,[10_SAQ] Right now I believe I can succeed in my current task if I set my mind to it.,,CF,,1,,TRUE,1,5,FALSE
+5717,[11_SAQ] I am currently struggling with my thoughts.,,GR,,2,,FALSE,1,5,FALSE
+5717,[13_SAQ] Right now I don't feel confident in my ability to effectively accomplish my current task.,,SC,CH,3,,FALSE,1,5,FALSE
+5717,[14_SAQ] At the moment I don't feel committed to my current task as much as I think I should.,,SE,,4,,TRUE,1,5,FALSE
+5717,[5_SAQ] Currently I don't feel entangled in my thoughts.,,SC,SK,5,,FALSE,1,5,FALSE
+5717,[7_SAQ] At the moment I feel determined to stick to my current task until it's complete.,,SE,,6,,FALSE,1,5,FALSE
+5717,[8_SAQ] Any feelings of inadequacy I experience right now are shared by most people.,,CF,,7,,FALSE,1,5,FALSE
+5717,[9_SAQ] Right now I am giving myself the caring and tenderness I need towards my negative feelings.,,GR,,8,,TRUE,1,5,FALSE
+5718,[10_SAQ]  I try to see my failings as part of the human condition.,,SC,SK,1,,TRUE,1,5,TRUE
+5718,[11_SAQ] When I’m going through a very hard time I give myself the caring and tenderness I need. ,,SC,SK,2,,FALSE,1,5,TRUE
+5718,[12_SAQ] When something upsets me I try to keep my emotions in balance. ,,SC,MF,3,,FALSE,1,5,TRUE
+5718,[13_SAQ] When I fail at something that’s important to me I tend to feel alone in my failure.,,SC,CH,4,,TRUE,1,5,TRUE
+5718,[14_SAQ] When I’m feeling down I tend to obsess and fixate on everything that’s wrong. ,,SC,CH,5,,FALSE,1,5,TRUE
+5718,[15_SAQ] When I feel inadequate in some way I try to remind myself that feelings of inadequacy are shared by most people. ,,SC,SK,6,,FALSE,1,5,TRUE
+5718,[16_SAQ]  I’m disapproving and judgmental about my own flaws and inadequacies. ,,SC,MF,7,,FALSE,1,5,TRUE
+5718,[17_SAQ] I’m intolerant and impatient towards those aspects of my personality I don’t like.,,SC,CH,8,,TRUE,1,5,TRUE
+5718,[29_SAQ]  I try to be understanding and patient towards those aspects of my personality I don't like.,,SC,SK,9,,TRUE,1,5,TRUE
+5718,[3_SAQ]  When I’m feeling down I tend to feel like most other people are probably happier than I am.,,SC,CH,10,,FALSE,1,5,TRUE
+5718,[6_SAQ]  When something painful happens I try to take a balanced view of the situation. ,,SC,SK,11,,TRUE,1,5,TRUE
+5718,[8_SAQ] When I fail at something important to me I become consumed by feelings of inadequacy.,,SC,SK,12,,TRUE,1,5,TRUE
+5752,[10_SAQ] 7. Challenges in my life sometimes make me want to stop trying.,,GR,,1,,TRUE,1,5,TRUE
+5752,[11_SAQ] 8. No matter what happens to me I will be okay.,,GR,,2,,FALSE,1,5,TRUE
+5752,[12_SAQ] 9. I always pay attention to what I am working on to make sure I do it well.,,GR,,3,,TRUE,1,5,TRUE
+5752,[13_SAQ] 10. Sometimes I don't care about my work as much as I should.,,GR,,4,,FALSE,1,5,TRUE
+5752,[14_SAQ] 11. I never give up even when things get tough.,,GR,,5,,FALSE,1,5,TRUE
+5752,[15_SAQ] 12. I am able to get through tough times without any difficulty.,,GR,,6,,TRUE,1,5,TRUE
+5752,[4_SAQ] 1. I don't always work as hard as I can.,,GR,,7,,TRUE,1,5,TRUE
+5752,[5_SAQ] 2. I always finish what I start﻿.,,GR,,8,,FALSE,1,5,TRUE
+5752,[6_SAQ] 3. I am not always motivated to do my best,,GR,,9,,FALSE,1,5,TRUE
+5752,[7_SAQ] 4. I always stick to the task I am working on until it is complete.,,GR,,10,,TRUE,1,5,TRUE
+5752,[8_SAQ] 5. I always keep working for what I want even when I don't do as well as I would like to.,,GR,,11,,FALSE,1,5,TRUE
+5752,[9_SAQ] 6. Sometimes I am not as focused on my work as I would like to be,,GR,,12,,FALSE,1,5,TRUE
+5755,[10_SAQ] 7. Compared to other people I can do most tasks very well. ,,SE,,1,,FALSE,1,5,TRUE
+5755,[11_SAQ] 8. Even when things are tough I can perform quite well. ,,SE,,2,,FALSE,1,5,TRUE
+5755,[4_SAQ] 1. I will be able to achieve most of the goals that I have set for myself. ,,SE,,3,,FALSE,1,5,TRUE
+5755,[5_SAQ] 2. When facing difficult tasks I am certain that I will accomplish them. ,,SE,,4,,FALSE,1,5,TRUE
+5755,[6_SAQ] 3. In general I think that I can obtain outcomes that are important to me. ,,SE,,5,,FALSE,1,5,TRUE
+5755,[7_SAQ] 4. I believe I can succeed at most any endeavor to which I set my mind. ,,SE,,6,,FALSE,1,5,TRUE
+5755,[8_SAQ] 5. I will be able to successfully overcome many challenges. ,,SE,,7,,FALSE,1,5,TRUE
+5755,[9_SAQ] 6. I am confident that I can perform effectively on many different tasks. ,,SE,,8,,FALSE,1,5,TRUE
